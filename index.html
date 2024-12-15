@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="error">
+    </div>
+    <div class="searchWeather">
+        <div class="loading">
+            loading.....
+        </div>
+        <form action="">
+            <div class="formBox">
+                <label for="city">Enter city </label>
+                <input name="city" id="city" type="text"    >
+            </div>
+            <button type="submit">get weather</button>
+            <span>or</span>
+            <button id="currentBtn">Use current location</button>
+        </form>
+    </div>
+    <div class="showWeather">
+        <div class="box1">
+            <span id="local"></span>
+        </div>
+
+        <div class="box2">
+            <div class="weatherMain">
+                <div class="temp">
+                    <img src="">
+                    <span id="tempC"></span>
+                    <span id="unit" ></span>
+                </div>
+                <span id="dateTime"></span>
+            </div>
+            <div class="weatherExtra">
+                <div id="extraDetails"></div>
+            </div>
+        </div>
+        <div class="box3">
+        </div>
+    </div>
+</body>
+</html>
