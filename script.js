@@ -12,6 +12,7 @@ const currentBtn = document.getElementById('currentBtn');
 
 //getting city name from form
 form.addEventListener('submit',(e)=>{
+    console.log(e);
     e.preventDefault();
     if(city.value)
     {
@@ -113,7 +114,7 @@ function getLocation()
 
 //base url and key
 const key ='a40e3b417674403a8d4113712241412';
-const url = ' http://api.weatherapi.com/v1';
+const url = ' https://api.weatherapi.com/v1';
 
 //function calling api and displaying weather
 function getWeather(cityName)
