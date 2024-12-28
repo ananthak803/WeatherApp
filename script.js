@@ -136,7 +136,7 @@ function getWeather(cityName)
     fetch(`${url}/forecast.json?key=${key}&q=${cityName}&days=6`).then(res=>{
         return res.json();
     }).then(data=>{
-        for(let i=0;i<5;i++)
+        for(let i=0;i<2;i++)
         {
             const span1 = document.createElement('span');
             span1.innerText=data.forecast.forecastday[i+1].date;
