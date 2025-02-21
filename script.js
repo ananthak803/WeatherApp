@@ -91,23 +91,37 @@ function sub(x){
 
 //to get user location
 currentBtn.addEventListener("click",getLocation);
-const google_key = 'AIzaSyDdVSKDBTopgjqZvOqLFWBvmSsN0-GHxfE'
+// const google_key = 'AIzaSyDdVSKDBTopgjqZvOqLFWBvmSsN0-GHxfE'
 function getLocation()
 {
     sub(2)
     navigator.geolocation.getCurrentPosition(pos=>{
         console.log(pos);
         console.log(pos.coords.longitude);
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${pos.coords.latitude},${pos.coords.longitude}&key=${google_key}`).then(res=>{
+        console.log(pos.coords.latitude);
+        const key='pk.b6c21920577a2611a3bd09e6cd212244';
+        fetch(`https://us1.locationiq.com/v1/reverse?key=${key}&lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&format=json&`).then(res=>{
             if(res.status>299)
-                errorCheck(res);
+                    errorCheck(res);
             return res.json();
         }).then(data=>{
-            if(data.status!="Ok")
-                sub(1);
-            const st =(data.results[0].formatted_address.split(','));
-            getWeather(st[st.length-3]);
-        });
+            if(data.status!="ok")
+                sub(1)
+            getWeather(data.address.city);
+        })
+
+//subscription expired
+//         fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${pos.coords.latitude},${pos.coords.longitude}&key=${google_key}`).then(res=>{
+//             if(res.status>299)
+//                 errorCheck(res);
+//             return res.json();
+//         }).then(data=>{
+//             if(data.status!="Ok")
+//                 sub(1);
+//             const st =(data.results[0].formatted_address.split(','));
+//             getWeather(st[st.length-3]);
+//         });
+
     });
 }
 
@@ -136,6 +150,7 @@ function getWeather(cityName)
     fetch(`${url}/forecast.json?key=${key}&q=${cityName}&days=6`).then(res=>{
         return res.json();
     }).then(data=>{
+        console.log(data);
         for(let i=0;i<2;i++)
         {
             const span1 = document.createElement('span');
