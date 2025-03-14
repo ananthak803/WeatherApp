@@ -142,7 +142,7 @@ function getWeather(cityName)
         wImg.setAttribute("src",`${iconSetMain(data.current)}`)
         tempC.innerText=data.current.temp_c+"°C";
         local.innerText=`${data.location.name}, ${data.location.region}`;
-        extra.innerText=`Wind : ${data.current.wind_kph} km/h\nHumidity : ${data.current.humidity}%\nVision : ${data.current.vis_km} km\nPrecipitation : ${data.current.precip_in}%`;
+        extra.innerText=`Wind : ${data.current.wind_kph} km/h\nHumidity : ${data.current.humidity}%\nVision : ${data.current.vis_km} km`;
         date.innerText=data.location.localtime;
     })
 
