@@ -193,6 +193,7 @@
         .box2{
             flex-direction:column;
             height: 20%;
+            margin-bottom: 3rem;
         }
         #tempC{
             font-size: 3.5rem;
